@@ -10,7 +10,7 @@ import animBack from './components/animBack.vue';
     <section class="main__corp mCorp">
       <h1 class="test">TEST</h1>
 
-      <animBack></animBack>
+      <animBack class="main__back"></animBack>
     </section>
   </div>
 
@@ -36,6 +36,7 @@ import animBack from './components/animBack.vue';
   background: #2d3436;
   position: relative;
 }
+
 
 .test {
   color: #dfe6e9;

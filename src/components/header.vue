@@ -102,7 +102,7 @@ let HeadLinks = [
   background: rgba(72, 126, 176, .7);
   color: white;
   font-weight: 500;
-  padding: 20px 0px;
+  padding: 20px 60px;
 }
 
 .header__menuLink {
@@ -162,25 +162,6 @@ let HeadLinks = [
 .mainMenu a {
   margin: 0; padding: 20px;
 }
-
-.subMenu {
-  position: absolute;
-  top: 60px; left: 320px;
-  bottom: 0;
-  z-index: 999;
-  margin: 20px;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, .8);
-  backdrop-filter: blur(10px);
-  width: 400px;
-
-  transition: .3s;
-}
-
-.subMenu::-webkit-scrollbar {
-  display: none;
-}
-
 
 
 .header__menuIcon {

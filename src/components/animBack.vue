@@ -7,15 +7,13 @@ let img = '/img/corp.jpg'
 
 
 <template>
-  <img class="test" :src=img alt="">
+  <img class="videoBack" :src=img alt="">
 </template>
 
 
+<style scoped>
 
-
-<style>
-
-.test {
+.videoBack {
   position: absolute;
   width: 100%; height: 100%;
   margin: 0; padding: 0;
