@@ -1,13 +1,19 @@
 <script setup>
 import { ref } from "vue";
 
+let HeadLinks = [
+  {link: '#', text: 'Завод'},
+  {link: '#', text: 'Корпорация'},
+  {link: '#', text: 'Недвижимость'},
+]
+
 </script>
 
 
 
 <template>
 <header class="header">
-  <div class="header__left">
+  <div class="header__main">
     <div class="header__inner">
       <img class="header__logo" src="/icons/logo.svg">
 
@@ -51,19 +57,14 @@ import { ref } from "vue";
   gap: 20px;
 
   box-sizing: border-box;
-  z-index: 9;
 }
 
-.header__left {
+.header__main {
   transform: skewX(-40deg);
   background: white;
-  box-shadow: 1px 1px 10px 3px rgba(0, 0, 0, .1);
+  /* box-shadow: 1px 1px 10px 3px rgba(0, 0, 0, .1); */
   margin-left: -40px;
   padding: 0 40px;
-}
-
-.header__left:hover .header__menuItem{
-  padding: 20px 40px;
 }
 
 .header__inner {
@@ -75,8 +76,6 @@ import { ref } from "vue";
 
   transform: skewX(40deg);
 }
-
-
 
 .header__logo {
   width: 30px;
@@ -99,11 +98,11 @@ import { ref } from "vue";
   transition: .3s;
 }
 
-
 .header__menuItem:hover {
   background: rgba(72, 126, 176, .7);
   color: white;
   font-weight: 500;
+  padding: 20px 0px;
 }
 
 .header__menuLink {
@@ -111,24 +110,20 @@ import { ref } from "vue";
   color: inherit;  
 }
 
-.header__decider {
-  width: 1px; height: 40px;
-  background: rgba(0, 0, 0, .2);
-}
 
 .header__phone {
   background: white;
   transform: skewX(40deg);
-  padding: 10px 60px;
-  box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, .1);
-  margin-right: -40px;
+  padding: 10px 40px;
+  /* box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, .1); */
+  margin-right: -10px;
 }
 
 
 .header__phone__inner {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 20px;
 
   transform: skewX(-40deg);
 }
@@ -194,17 +189,6 @@ import { ref } from "vue";
   padding-left: 20px;
 }
 
-.sideFade-enter-active,
-.sideFade-leave-active {
-  transform: translateY(-100px);
-  opacity: 0;
-}
-
-.subFade-enter-active,
-.subFade-leave-active {
-  transform: translateX(-20px);
-  opacity: 0;
-}
 
 
 @media (max-width: 500px) {
