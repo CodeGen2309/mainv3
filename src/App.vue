@@ -5,16 +5,15 @@ import animBack from './components/animBack.vue';
 </script>
 
 <template>
+  <siteHead class="mHeader main__header"></siteHead> 
+
   <div class="main__layout">
-    <siteHead class="mHeader main__header"></siteHead>
-    <section class="main__corp mCorp">
-      <h1 class="test">TEST</h1>
-
-      <animBack class="main__back"></animBack>
-    </section>
+    <RouterView v-slot="{ Component }">
+      <transition name="fadeLeft">
+        <component class="compAnim" :is="Component"></component>
+      </transition>
+    </RouterView>
   </div>
-
-<RouterView />
 </template>
 
 <style>
@@ -28,18 +27,12 @@ import animBack from './components/animBack.vue';
 }
 
 .mHeader {
-  z-index: 999;
+  z-index: 9;
 }
 
 .mCorp {
   width: 100%; height: 100%;
   background: #2d3436;
   position: relative;
-}
-
-
-.test {
-  color: #dfe6e9;
-  margin: 0; padding: 20px;
 }
 </style>

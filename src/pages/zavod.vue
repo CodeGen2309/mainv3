@@ -42,21 +42,22 @@ onMounted(startAnim)
 
 <template>
   <div class="vBack">
-    <img src="/img/corp.jpg" class="vBack__img">
+    <img src="/img/zavod.png" class="vBack__img">
 
     <div class="vBack__cover vBack__cover_first"></div>
     <div class="vBack__cover vBack__cover_second"></div>
     <div class="vBack__cover vBack__cover_third vBack__cover_text"></div>
 
     <div class="vBack__content vCont">
-      <h1 class="vCont__title vCont_anim">Корпорация ЖБК - 1</h1>
+      <h1 class="vCont__title vCont_anim">Завод ЖБК - 1</h1>
 
       <p class="vCont__desc vCont_anim">
-        70 лет Корпорация ЖБК-1 является одним из лидеров строительного рынка региона.
-        ЖБК-1 возводит дома, школы, храмы, выпускает более 10 тысяч наименований
-        качественных строительных материалов. Кроме этого, корпорация ЖБК-1 является
-        признанным в регионе предприятием с высокой социальной ответственностью.
-        Миссия Корпорации ЖБК-1 - «Созидание во имя повышения качества жизни».
+        Головное предприятие Корпорации – Завод ЖБК-1 успешно работает на 
+        строительном рынке 70 лет и выпускает более 10 тысяч наименований.
+        Продукция производится на современных европейских технологических линиях. 
+        Контроль качества осуществляет собственная производственно-испытательная лаборатория 
+        строительных материалов, которая оснащена новым оборудованием и 
+        аттестована в установленном порядке.
       </p>
 
       <div class="vCont__buttons vCont_anim">
@@ -91,6 +92,7 @@ onMounted(startAnim)
   width: 70%; 
   height: 100%;
   background: rgba(0, 0, 0, .5); 
+  /* background: rgba(255, 255, 255, .5);  */
 }
 
 .vBack__cover_first {
@@ -117,6 +119,7 @@ onMounted(startAnim)
   padding: 60px 40px;
   box-sizing: border-box;
   color: aliceblue;
+  /* color: black; */
 }
 
 .vCont {}
@@ -157,7 +160,7 @@ onMounted(startAnim)
   margin: 0; padding: 0;
   font-weight: 400;
   letter-spacing: 2px;
-  color: rgba(255, 255, 255, .8);
+  /* color: rgba(255, 255, 255, .8); */
   transition: .3s;
 }
 
@@ -171,11 +174,13 @@ onMounted(startAnim)
 .vCount__buttonItem {
   position: relative;
   display: block;
-  color: white;
+  color: Black;
   text-decoration: none;
   /* font-weight: 600; */
-  background: rgba(255, 255, 255, .2);
-  border: 1px solid rgba(255, 255, 255, .6);
+  color: aliceblue;
+  font-size: 18px;
+  background: rgba(255, 255, 255, .3);
+  border: 1px solid rgba(255, 255, 255, 1);
   padding: 20px 40px;
   transition: .3s;
   font-family: zekton;

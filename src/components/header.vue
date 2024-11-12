@@ -1,11 +1,12 @@
 <script setup>
 import { ref } from "vue";
 
-let HeadLinks = [
-  {link: '#', text: 'Завод'},
-  {link: '#', text: 'Корпорация'},
-  {link: '#', text: 'Недвижимость'},
-]
+let HeadLinks = []
+// let HeadLinks = [
+//   {link: '#', text: 'Завод'},
+//   {link: '#', text: 'Корпорация'},
+//   {link: '#', text: 'Недвижимость'},
+// ]
 
 </script>
 
@@ -45,11 +46,12 @@ let HeadLinks = [
 
 
 
-<style>
+<style scoped>
 
 .header {
   position: absolute;
   width: 100%;
+  overflow: hidden;
 
   display: flex;
   align-items: stretch;
@@ -62,9 +64,8 @@ let HeadLinks = [
 .header__main {
   transform: skewX(-40deg);
   background: white;
-  /* box-shadow: 1px 1px 10px 3px rgba(0, 0, 0, .1); */
   margin-left: -40px;
-  padding: 0 40px;
+  padding: 20px 60px;
 }
 
 .header__inner {
@@ -114,7 +115,7 @@ let HeadLinks = [
 .header__phone {
   background: white;
   transform: skewX(40deg);
-  padding: 10px 40px;
+  padding: 20px 40px;
   /* box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, .1); */
   margin-right: -10px;
 }
@@ -130,7 +131,7 @@ let HeadLinks = [
 
 
 .header__phoneImg {
-  opacity: 0.7;
+  opacity: .6;
   width: 30px;
 }
 
