@@ -1,22 +1,33 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import siteHead from './components/header.vue';
-import animBack from './components/animBack.vue';
+import { animate } from 'motion';
+
+
+function transitAnim () {
+  let adapter = document.querySelector('.main__adapter')
+
+  animate(adapter, 
+    { opacity: [0, 3], width: ['70%', '140%'] },
+    {duration: 1.4}
+  )
+}
 </script>
 
 <template>
   <siteHead class="mHeader main__header"></siteHead> 
 
   <div class="main__layout">
-    <RouterView v-slot="{ Component }">
-      <transition name="fadeLeft">
-        <component class="compAnim" :is="Component"></component>
-      </transition>
-    </RouterView>
+    <div class="main__cover">
+      <router-view />
+    </div>
   </div>
 </template>
 
-<style>
+<style scoped>
+.mHeader { z-index: 9 }
+
+
 .main__layout {
   position: absolute;
   top: 0; left: 0;
@@ -26,13 +37,11 @@ import animBack from './components/animBack.vue';
   background: white;
 }
 
-.mHeader {
-  z-index: 9;
+.main__cover {
+  position: relative;
+  width: 100%; height: 100%;
+  background: black;
 }
 
-.mCorp {
-  width: 100%; height: 100%;
-  background: #2d3436;
-  position: relative;
-}
+
 </style>

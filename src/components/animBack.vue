@@ -1,69 +1,125 @@
 <script setup>
+// --------------------------
 import { animate, stagger, timeline } from 'motion';
-import { onMounted } from 'vue';
+import { onMounted, getCurrentInstance } from 'vue';
+import videoBack from './videoBack.vue';
+import router from '@/router';
 
-let img = '/img/corp.jpg'
 
-let links = [
-  {text: 'Недвижимость', link: '/'},
-  {text: 'Строительные Материалы', link: '/zavod'},
-  // {text: '', link: ''},
-]
+let props = defineProps({
+  'links': {default: []}, 
+  'img': {default: ''}, 
+  'title': {default: 'test title'}, 
+  'desc': {default: 'test desc'},
+  'backColor': {default: 'rgba(0, 0, 0, .5)'},
+  'video': {default: '/public/video/prolyet.mp4'},
+  'playRate': {default: '0.7'}
+})
+
+let globals  = getCurrentInstance().appContext.config.globalProperties
+
+
 
 
 function startAnim () {
-  let covers = document.querySelectorAll('.vBack__cover')
-  let textCover = document.querySelector('.vBack__content')
-  let textItems = document.querySelectorAll('.vCont_anim')
+  let covers, textItems, image
 
-  let skewAnim = [covers, { skewX: '20deg' }]
-  let coverAnim = [
+  covers = document.querySelectorAll('.vBack__cover')
+  textItems = document.querySelectorAll('.vCont_anim')
+  image = document.querySelector('.vBack__img')
+  
+  animate(covers, { skewX: '20deg' })
+
+  animate(
+    image, 
+    { opacity: 1 },
+    {duration: 2}
+  )
+
+  animate(
     covers, 
-    { translateX: ['-100%', 0] },
-    { duration: 1.5, delay: stagger(.2) }
-  ]
+    { translateX: ['-90%', '0'], opacity: [0, 1] },
+    { duration: 1.5, delay: stagger(0.3) },
+    // { duration: 1.2, delay: .5 }
+  )
 
-  let textAnim = [
+  animate(
     textItems, 
-    { opacity: [0, 1], translateY: [100, 0] },
-    { duration: 1, delay: stagger(.1) }
-  ]
-
-  timeline([skewAnim, coverAnim, textAnim], {delay: 0.3})
+    { 
+      opacity: [0, 1], 
+      translateX: ['50px', '0'] 
+    },
+    { duration: 1, delay: .5 }
+  )
 }
 
 
+function gotoLink (link) {
+  let textCover, textHolder, currUrl, thisPage
+
+  textCover = document.querySelectorAll('.vBack__cover')
+  textHolder = document.querySelectorAll('.vBack__content')
+
+  animate(
+    textHolder, 
+    { 
+      translateX: '30px',
+      scale: '1.02',
+      opacity: 0
+    },
+    { duration: 1 }
+  )
+
+  animate(
+    textCover, 
+    { 
+      // scaleX: '3',
+      width: '150%',
+      background: 'rgba(0, 0, 0, 1)'
+    },
+    { duration: 1 }
+  )
+
+  setTimeout(() => {
+    router.push({ path: link, replace: true })
+  }, 700);
+
+}
+
 
 onMounted(startAnim)
-
 </script>
 
 
 
 <template>
   <div class="vBack">
-    <img src="/img/corp.jpg" class="vBack__img">
+    <videoBack class="vBack__img" :video="props.video" :play-rate="playRate"
+    />
 
-    <div class="vBack__cover vBack__cover_first"></div>
-    <div class="vBack__cover vBack__cover_second"></div>
-    <div class="vBack__cover vBack__cover_third vBack__cover_text"></div>
+
+    <div class="vBack__cover vBack__cover_first"
+      :style="`background: ${backColor}`"
+    ></div>
+
+    <div class="vBack__cover vBack__cover_second"
+      :style="`background: ${backColor}`"
+    ></div>
+
+    <div class="vBack__cover vBack__cover_third"
+      :style="`background: ${backColor}`"
+    ></div>
 
     <div class="vBack__content vCont">
-      <h1 class="vCont__title vCont_anim">Корпорация ЖБК - 1</h1>
-
-      <p class="vCont__desc vCont_anim">
-        70 лет Корпорация ЖБК-1 является одним из лидеров строительного рынка региона.
-        ЖБК-1 возводит дома, школы, храмы, выпускает более 10 тысяч наименований
-        качественных строительных материалов. Кроме этого, корпорация ЖБК-1 является
-        признанным в регионе предприятием с высокой социальной ответственностью.
-        Миссия Корпорации ЖБК-1 - «Созидание во имя повышения качества жизни».
-      </p>
+      <h1 class="vCont__title vCont_anim">{{ title }}</h1>
+      <p class="vCont__desc vCont_anim">{{ desc }}</p>
 
       <div class="vCont__buttons vCont_anim">
-        <a v-for="l in links" :href="l.link"
+        <p v-for="l in links" :to="l.link"
+          @click="gotoLink(l.link)"
           :key="l.text" class="vCount__buttonItem">
           {{ l.text }}
-        </a>
+        </p>
       </div>
     </div>
   </div>
@@ -79,10 +135,7 @@ onMounted(startAnim)
 }
 
 .vBack__img {
-  position: absolute;
-  width: 100%; height: 100%;
-  object-position: center;
-  object-fit: cover;
+  opacity: 0;
 }
 
 .vBack__cover  {
@@ -101,6 +154,8 @@ onMounted(startAnim)
 .vBack__cover_second {
   width: calc(70% + 50px);
 }
+
+.vBack__cover_third {}
 
 .vBack__content {
   position: absolute;
@@ -163,16 +218,16 @@ onMounted(startAnim)
 
 .vCont__buttons {
   display: flex;
-  justify-content: center;
-  gap: 30px;
-  /* padding-top: 60px; */
+  /* justify-content: center; */
+  flex-wrap: wrap;
+  gap: 20px 30px ;
 }
 
 .vCount__buttonItem {
   position: relative;
   display: block;
-  color: white;
   text-decoration: none;
+  margin: 0; padding: 0;
   /* font-weight: 600; */
   background: rgba(255, 255, 255, .2);
   border: 1px solid rgba(255, 255, 255, .6);
