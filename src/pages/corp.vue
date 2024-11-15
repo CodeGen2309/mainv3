@@ -6,6 +6,14 @@ let title = 'Корпорация ЖБК - 1'
 let pageImg = '/img/corp.jpg'
 let video = './video/main-crop.mp4'
 
+let forGround = 'linear-gradient(to top right, #2980b9, rgba(0, 0, 0, .4))'
+// let background = 'linear-gradient(to top right, #2980b9, rgba(0, 0, 0, .4))'
+// let forGround = '#2980b9'
+// let forGround = 'rgba(41, 128, 185, .6);'
+// let background = 'rgba(0, 0, 0, .5);'
+
+
+
 let pageDesc = `
   70 лет Корпорация ЖБК-1 является одним из лидеров строительного рынка 
   региона. ЖБК-1 возводит дома, школы, храмы, выпускает более 10 тысяч 
@@ -30,7 +38,8 @@ let links = [
     <animBack :title="title"
       :links="links" class="main__back" 
       :img="pageImg" :desc="pageDesc"
-      :video="video" 
+      :video="video" :back-color="background"
+      :front-color="forGround"
     />
   </section>
 </template>

@@ -12,6 +12,7 @@ let props = defineProps({
   'title': {default: 'test title'}, 
   'desc': {default: 'test desc'},
   'backColor': {default: 'rgba(0, 0, 0, .5)'},
+  'frontColor': {default: 'rgba(0, 0, 0, .5)'},
   'video': {default: '/public/video/prolyet.mp4'},
   'playRate': {default: '0.7'}
 })
@@ -55,9 +56,10 @@ function startAnim () {
 
 
 function gotoLink (link) {
-  let textCover, textHolder, currUrl, thisPage
+  let background, textHolder, textCover
 
-  textCover = document.querySelectorAll('.vBack__cover')
+  background = document.querySelectorAll('.vBack__cover')
+  textCover = document.querySelectorAll('.vBack__cover_third')
   textHolder = document.querySelectorAll('.vBack__content')
 
   animate(
@@ -70,8 +72,10 @@ function gotoLink (link) {
     { duration: 1 }
   )
 
+  animate(textCover, { opacity: 0 }, { duration: .5 })
+
   animate(
-    textCover, 
+    background, 
     { 
       // scaleX: '3',
       width: '150%',
@@ -82,7 +86,7 @@ function gotoLink (link) {
 
   setTimeout(() => {
     router.push({ path: link, replace: true })
-  }, 700);
+  }, 800);
 
 }
 
@@ -107,7 +111,7 @@ onMounted(startAnim)
     ></div>
 
     <div class="vBack__cover vBack__cover_third"
-      :style="`background: ${backColor}`"
+      :style="`background: ${frontColor}`"
     ></div>
 
     <div class="vBack__content vCont">
@@ -143,7 +147,6 @@ onMounted(startAnim)
   top: 0; left: -20%;
   width: 70%; 
   height: 100%;
-  background: rgba(0, 0, 0, .5); 
 }
 
 .vBack__cover_first {
@@ -155,7 +158,8 @@ onMounted(startAnim)
   width: calc(70% + 50px);
 }
 
-.vBack__cover_third {}
+.vBack__cover_third {
+}
 
 .vBack__content {
   position: absolute;
@@ -172,6 +176,7 @@ onMounted(startAnim)
   padding: 60px 40px;
   box-sizing: border-box;
   color: aliceblue;
+  /* color: rgba(0, 0, 0, .6); */
 }
 
 .vCont {}
@@ -212,7 +217,7 @@ onMounted(startAnim)
   margin: 0; padding: 0;
   font-weight: 400;
   letter-spacing: 2px;
-  color: rgba(255, 255, 255, .8);
+  /* color: rgba(255, 255, 255, .8); */
   transition: .3s;
 }
 

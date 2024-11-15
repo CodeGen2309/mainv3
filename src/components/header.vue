@@ -138,6 +138,8 @@ let HeadLinks = []
 .header__phoneText {
   font-weight: 100;
   margin: 0; padding: 0;
+  font-size: 18px;
+  font-weight: 500;
 }
 
 

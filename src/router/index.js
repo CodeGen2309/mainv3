@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory, createMemoryHistory } from 'vue-router'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  // history: createWebHistory(import.meta.env.BASE_URL),
   history: createMemoryHistory(import.meta.env.BASE_URL),
   routes: [
     // {
@@ -17,6 +17,11 @@ const router = createRouter({
       path: '/',
       name: 'main',
       component: () => import('../pages/corp.vue'),
+    },
+    {
+      path: '/test',
+      name: 'test',
+      component: () => import('../pages/test.vue'),
     },
     {
       path: '/zavod',

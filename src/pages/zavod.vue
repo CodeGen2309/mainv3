@@ -3,7 +3,15 @@ import animBack from '@/components/animBack.vue';
 
 let title = 'Завод ЖБК - 1'
 let pageImg = '/img/zavod.png'
-let video = './video/prolyet.mp4'
+let video = '/public/video/zavod-prolyet.mp4'
+let forGround = 'linear-gradient(to top right, #6D6027, rgba(255, 255, 255, .7))'
+let background = 'linear-gradient(to top right, #6D6027, rgba(255, 255, 255, .2))'
+// let background = 'rgba(41, 128, 185, .2);'
+// let background = 'rgba(0, 0, 0, .2);'
+// let background = 'rgba(255, 255, 255, .3);'
+// let background = 'rgba(34, 107, 156, .4);'
+
+let playRate = 1
 
 let pageDesc = `
   Головное предприятие Корпорации – Завод ЖБК-1 
@@ -32,7 +40,8 @@ let links = [
     <animBack :title="title"
       :links="links" class="main__back" 
       :img="pageImg" :desc="pageDesc"
-      :video="video"
+      :video="video" :front-color="forGround"
+      :back-color="background" :play-rate="playRate"
     />
   </section>
 </template>
