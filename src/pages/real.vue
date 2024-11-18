@@ -4,8 +4,11 @@ import animBack from '@/components/animBack.vue';
 
 let title = 'Строительство'
 let video = '/public/video/zaryaKopter.mp4'
+
 let fronColor = 'linear-gradient(to right top, rgba(195, 20, 50, 0.6), rgba(0, 0, 0, .6))'
-// let background = 'rgba(189, 195, 199, .1)'
+
+let background = 'rgba(0, 0, 0, .4)'
+// let background = 'rgba(195, 20, 50, 0.2)'
 
 
 
@@ -33,7 +36,7 @@ let links = [
     <animBack :title="title"
       :links="links" class="main__back" 
       :img="pageImg" :desc="pageDesc"
-      :video="video"
+      :video="video" :back-color="background"
       :front-color="fronColor"
     />
   </section>

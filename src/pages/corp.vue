@@ -6,8 +6,13 @@ let title = 'Корпорация ЖБК - 1'
 let pageImg = '/img/corp.jpg'
 let video = './video/main-crop.mp4'
 
-let forGround = 'linear-gradient(to top right, #2980b9, rgba(0, 0, 0, .4))'
-// let background = 'linear-gradient(to top right, #2980b9, rgba(0, 0, 0, .4))'
+let pallete = [
+  'rgba(255, 242, 0, .6)', 'rgba(255, 165, 2, 1.0)'
+]
+
+// let forGround = 'linear-gradient(to top right,  rgba(41, 128, 185, .8), rgba(0, 0, 0, .4))'
+let forGround = 'linear-gradient(to top right,  rgba(255, 165, 2,  .6), rgba(0, 0, 0, .8))'
+// let forGround = 'linear-gradient(to top right,  rgba(255, 234, 167, .6), rgba(0, 0, 0, .4))'
 // let forGround = '#2980b9'
 // let forGround = 'rgba(41, 128, 185, .6);'
 // let background = 'rgba(0, 0, 0, .5);'

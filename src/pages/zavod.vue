@@ -4,10 +4,12 @@ import animBack from '@/components/animBack.vue';
 let title = 'Завод ЖБК - 1'
 let pageImg = '/img/zavod.png'
 let video = '/public/video/zavod-prolyet.mp4'
-let forGround = 'linear-gradient(to top right, #6D6027, rgba(255, 255, 255, .7))'
-let background = 'linear-gradient(to top right, #6D6027, rgba(255, 255, 255, .2))'
+
+// let forGround = 'linear-gradient(to top right, #6D6027, rgba(0, 0, 0, .3))'
+let forGround = 'linear-gradient(to top right, rgba(9, 132, 227, .7), rgba(0, 0, 0, .3))'
+
 // let background = 'rgba(41, 128, 185, .2);'
-// let background = 'rgba(0, 0, 0, .2);'
+let background = 'rgba(0, 0, 0, .6);'
 // let background = 'rgba(255, 255, 255, .3);'
 // let background = 'rgba(34, 107, 156, .4);'
 

@@ -23,19 +23,14 @@ let globals  = getCurrentInstance().appContext.config.globalProperties
 
 
 function startAnim () {
-  let covers, textItems, image
+  let covers, textItems, image, textCover
 
   covers = document.querySelectorAll('.vBack__cover')
   textItems = document.querySelectorAll('.vCont_anim')
   image = document.querySelector('.vBack__img')
   
   animate(covers, { skewX: '20deg' })
-
-  animate(
-    image, 
-    { opacity: 1 },
-    {duration: 2}
-  )
+  animate(image, { opacity: 1 }, {duration: 2} )
 
   animate(
     covers, 
@@ -43,6 +38,7 @@ function startAnim () {
     { duration: 1.5, delay: stagger(0.3) },
     // { duration: 1.2, delay: .5 }
   )
+
 
   animate(
     textItems, 
@@ -77,7 +73,6 @@ function gotoLink (link) {
   animate(
     background, 
     { 
-      // scaleX: '3',
       width: '150%',
       background: 'rgba(0, 0, 0, 1)'
     },
@@ -101,12 +96,11 @@ onMounted(startAnim)
     <videoBack class="vBack__img" :video="props.video" :play-rate="playRate"
     />
 
-
-    <div class="vBack__cover vBack__cover_first"
+    <div class="vBack__cover vBack__cover_first vBack__cover_empty"
       :style="`background: ${backColor}`"
     ></div>
 
-    <div class="vBack__cover vBack__cover_second"
+    <div class="vBack__cover vBack__cover_second vBack__cover_empty"
       :style="`background: ${backColor}`"
     ></div>
 
@@ -145,6 +139,7 @@ onMounted(startAnim)
 .vBack__cover  {
   position: absolute;
   top: 0; left: -20%;
+  opacity: 0;
   width: 70%; 
   height: 100%;
 }
@@ -176,7 +171,6 @@ onMounted(startAnim)
   padding: 60px 40px;
   box-sizing: border-box;
   color: aliceblue;
-  /* color: rgba(0, 0, 0, .6); */
 }
 
 .vCont {}
@@ -217,13 +211,11 @@ onMounted(startAnim)
   margin: 0; padding: 0;
   font-weight: 400;
   letter-spacing: 2px;
-  /* color: rgba(255, 255, 255, .8); */
   transition: .3s;
 }
 
 .vCont__buttons {
   display: flex;
-  /* justify-content: center; */
   flex-wrap: wrap;
   gap: 20px 30px ;
 }
@@ -233,7 +225,6 @@ onMounted(startAnim)
   display: block;
   text-decoration: none;
   margin: 0; padding: 0;
-  /* font-weight: 600; */
   background: rgba(255, 255, 255, .2);
   border: 1px solid rgba(255, 255, 255, .6);
   padding: 20px 40px;
@@ -246,7 +237,6 @@ onMounted(startAnim)
   position: absolute;
   width: 100%; height: 100%;
   top: 4px; left: 4px;
-  /* background: green; */
   border-bottom: 1px solid rgba(255, 255, 255, .6);
   border-right: 1px solid rgba(255, 255, 255, .6);
   transition: .3s;
