@@ -1,16 +1,19 @@
 <script setup>
-import animBack from '@/components/animBack.vue';
+import animBackLeft from '@/components/animBackLeft.vue';
+import AnimBackRight from '@/components/animBackRight.vue';
 
 let title = 'Завод ЖБК - 1'
 let pageImg = '/img/zavod.png'
-let video = '/public/video/zavod-prolyet.mp4'
+let video = '/public/video/zavod.mp4'
 
-// let forGround = 'linear-gradient(to top right, #6D6027, rgba(0, 0, 0, .3))'
-let forGround = 'linear-gradient(to top right, rgba(9, 132, 227, .7), rgba(0, 0, 0, .3))'
+// let fronColor = 'linear-gradient(to top right, rgba(9, 132, 227, .7), rgba(0, 0, 0, .6))'
+let fronColor = 'linear-gradient(to top left, rgba(64, 115, 158, .8), rgba(0, 0, 0, .6))'
+// let fronColor = 'linear-gradient(to right top, rgba(194, 54, 22, .8), rgba(0, 0, 0, .6))'
 
-// let background = 'rgba(41, 128, 185, .2);'
-let background = 'rgba(0, 0, 0, .6);'
-// let background = 'rgba(255, 255, 255, .3);'
+
+
+// let background = 'rgba(0, 0, 0, .6);'
+let background = 'linear-gradient(to bottom left, rgba(64, 115, 158, .8), rgba(0, 0, 0, .2))'
 // let background = 'rgba(34, 107, 156, .4);'
 
 let playRate = 1
@@ -39,11 +42,12 @@ let links = [
 
 <template>
   <section class="main__corp mCorp">
-    <animBack :title="title"
+    <AnimBackRight :title="title"
       :links="links" class="main__back" 
       :img="pageImg" :desc="pageDesc"
-      :video="video" :front-color="forGround"
+      :video="video" :front-color="fronColor"
       :back-color="background" :play-rate="playRate"
+      width="50%"
     />
   </section>
 </template>

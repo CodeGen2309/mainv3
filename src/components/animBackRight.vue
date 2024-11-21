@@ -12,7 +12,7 @@ let props = defineProps({
   'backColor': {default: 'rgba(0, 0, 0, .5)'},
   'frontColor': {default: 'rgba(0, 0, 0, .5)'},
   'video': {default: '/public/video/prolyet.mp4'},
-  'playRate': {default: '0.7'}
+  'playRate': {default: '1'}
 })
 
 function startAnim () {
@@ -22,19 +22,17 @@ function startAnim () {
   textItems = document.querySelectorAll('.vCont_anim')
   image = document.querySelector('.vBack__img')
   
-  animate(covers, { skewX: '20deg' })
+  animate(covers, { skewX: '-20deg' })
   animate(image, { opacity: 1 }, {duration: 2} )
 
-  animate(
-    covers, 
-    { translateX: ['-90%', '0'], opacity: [0, 1] },
-    { duration: 1.5, delay: stagger(0.3) },
-    // { duration: 1.2, delay: .5 }
+  animate( covers, 
+    { translateX: ['120%', '0'], opacity: [0, 1] },
+    { duration: 1, delay: stagger(0.3) },
+    // { duration: 2, delay: .5 }
   )
 
 
-  animate(
-    textItems, 
+  animate( textItems,
     { 
       opacity: [0, 1], 
       translateX: ['50px', '0'] 
@@ -83,35 +81,35 @@ onMounted(startAnim)
 
 
 <template>
-  <div class="vBack">
-    <videoBack class="vBack__img" :video="props.video" :play-rate="playRate"
-    />
+<div class="vBack">
+  <videoBack class="vBack__img" :video="props.video" :play-rate="playRate"
+  />
 
-    <div class="vBack__cover vBack__cover_first vBack__cover_empty"
-      :style="`background: ${backColor}`"
-    ></div>
+  <div class="vBack__cover vBack__cover_first vBack__cover_empty"
+    :style="`background: ${backColor}`"
+  ></div>
 
-    <div class="vBack__cover vBack__cover_second vBack__cover_empty"
-      :style="`background: ${backColor}`"
-    ></div>
+  <div class="vBack__cover vBack__cover_second vBack__cover_empty"
+    :style="`background: ${backColor}`"
+  ></div>
 
-    <div class="vBack__cover vBack__cover_third"
-      :style="`background: ${frontColor}`"
-    ></div>
+  <div class="vBack__cover vBack__cover_third"
+    :style="`background: ${frontColor}`"
+  ></div>
 
-    <div class="vBack__content vCont">
-      <h1 class="vCont__title vCont_anim">{{ title }}</h1>
-      <p class="vCont__desc vCont_anim">{{ desc }}</p>
+  <div class="vBack__content vCont">
+    <h1 class="vCont__title vCont_anim">{{ title }}</h1>
+    <p class="vCont__desc vCont_anim">{{ desc }}</p>
 
-      <div class="vCont__buttons vCont_anim">
-        <p v-for="l in links" :to="l.link"
-          @click="gotoLink(l.link)"
-          :key="l.text" class="vCont__buttonItem">
-          {{ l.text }}
-        </p>
-      </div>
+    <div class="vCont__buttons vCont_anim">
+      <p v-for="l in links" :to="l.link"
+        @click="gotoLink(l.link)"
+        :key="l.text" class="vCont__buttonItem">
+        {{ l.text }}
+      </p>
     </div>
   </div>
+</div>
 </template>
 
 
@@ -129,19 +127,19 @@ onMounted(startAnim)
 
 .vBack__cover  {
   position: absolute;
-  top: 0; left: -20%;
+  top: 0; right: -20%;
   opacity: 0;
-  width: 65%; 
+  width: 60%;
   height: 100%;
 }
 
 .vBack__cover_first {
-  width: calc(65% + 20px);
+  width: calc(60% + 20px);
 }
 
 
 .vBack__cover_second {
-  width: calc(65% + 10px);
+  width: calc(60% + 10px);
 }
 
 .vBack__cover_third {
@@ -149,14 +147,14 @@ onMounted(startAnim)
 
 .vBack__content {
   position: absolute;
-  top: 0; left: 0;
+  top: 0; right: 0;
   height: 100%;
-  width: 45%;
+  width: 35%;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: start;
+  align-items: end;
   gap: 60px;
 
   padding: 40px;
@@ -169,6 +167,7 @@ onMounted(startAnim)
 .vCont__title {
   position: relative;
   margin: 0; padding: 0;
+  margin-right: 40px;
   font-size: 30px;
   font-family: zekton;
   letter-spacing: 3px;
@@ -186,7 +185,6 @@ onMounted(startAnim)
   transform: translateX(30px) translateY(5px);
 }
 
-
 .vCont__title::after {
   content: '';
   width: 100%; height: 100%;
@@ -198,9 +196,10 @@ onMounted(startAnim)
 }
 
 .vCont__desc {
-  font-size: 20px;
+  font-size: 18px;
   margin: 0; padding: 0;
   font-weight: 400;
+  text-align: end;
   letter-spacing: 2px;
   transition: .3s;
 }
@@ -208,6 +207,7 @@ onMounted(startAnim)
 .vCont__buttons {
   display: flex;
   flex-wrap: wrap;
+  justify-content: end;
   gap: 20px 30px ;
 }
 

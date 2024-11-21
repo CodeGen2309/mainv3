@@ -1,5 +1,5 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterView } from 'vue-router'
 import siteHead from './components/header.vue';
 import { animate } from 'motion';
 
@@ -19,7 +19,7 @@ function transitAnim () {
 
   <div class="main__layout">
     <div class="main__cover">
-      <router-view />
+      <RouterView />
     </div>
   </div>
 </template>

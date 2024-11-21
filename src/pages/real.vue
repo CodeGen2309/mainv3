@@ -1,14 +1,20 @@
 <script setup>
-import animBack from '@/components/animBack.vue';
+import animBackRight from '@/components/animBackRight.vue';
 
 
 let title = 'Строительство'
-let video = '/public/video/zaryaKopter.mp4'
+let video = './video/real.mp4'
 
-let fronColor = 'linear-gradient(to right top, rgba(195, 20, 50, 0.6), rgba(0, 0, 0, .6))'
+// let frontColor = 'linear-gradient(to right top, rgba(195, 20, 50, 0.6), rgba(0, 0, 0, .6))'
+// let frontColor = 'linear-gradient(to top right, rgba(9, 132, 227, .7), rgba(0, 0, 0, .3))'
+let frontColor = 'linear-gradient(to top left, rgba(251, 197, 49, .6), rgba(0, 0, 0, .6))'
 
-let background = 'rgba(0, 0, 0, .4)'
+
+
+// let background = 'rgba(0, 0, 0, .6)'
 // let background = 'rgba(195, 20, 50, 0.2)'
+let background = 'linear-gradient(to bottom left, rgba(251, 197, 49, .6), rgba(0, 0, 0, .6))'
+
 
 
 
@@ -33,11 +39,11 @@ let links = [
 
 <template>
   <section class="main__corp mCorp">
-    <animBack :title="title"
+    <animBackRight :title="title"
       :links="links" class="main__back" 
       :img="pageImg" :desc="pageDesc"
       :video="video" :back-color="background"
-      :front-color="fronColor"
+      :front-color="frontColor"
     />
   </section>
 </template>

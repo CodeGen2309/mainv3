@@ -1,13 +1,15 @@
 <script setup>
 import { onMounted } from 'vue';
 
-let props = defineProps([
-  'video', 'playRate'
-])
+let props = defineProps({
+  'video': {default: '/public/video/prolyet.mp4'}, 
+  'playRate': {default: 1}
+})
 
 
 onMounted(() => {
   let video = document.querySelector('.testVideo')
+  console.log(video);
   video.playbackRate = props.playRate ;
 })
 

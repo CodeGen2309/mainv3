@@ -25,20 +25,19 @@ function startAnim () {
   animate(covers, { skewX: '20deg' })
   animate(image, { opacity: 1 }, {duration: 2} )
 
-  animate(
-    covers, 
+  animate( covers, 
     { translateX: ['-90%', '0'], opacity: [0, 1] },
     { duration: 1.5, delay: stagger(0.3) },
     // { duration: 1.2, delay: .5 }
   )
 
 
-  animate(
-    textItems, 
+  animate( textItems, 
     { 
       opacity: [0, 1], 
-      translateX: ['50px', '0'] 
+      translateX: ['50px', '0']
     },
+
     { duration: 1, delay: .5 }
   )
 }
