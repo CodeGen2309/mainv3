@@ -9,7 +9,6 @@ let props = defineProps({
 
 onMounted(() => {
   let video = document.querySelector('.testVideo')
-  console.log(video);
   video.playbackRate = props.playRate ;
 })
 
@@ -17,7 +16,7 @@ onMounted(() => {
 
 
 <template>
-  <video class="testVideo" muted loop autoplay>
+  <video class="testVideo" muted autoplay>
     <source  :src="video">
   </video>
 </template>

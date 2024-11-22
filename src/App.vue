@@ -33,7 +33,7 @@ function transitAnim () {
   top: 0; left: 0;
   right: 0; bottom: 0;
   overflow: hidden;
-  padding: 10px;
+  padding: 15px;
   background: white;
 }
 

@@ -5,15 +5,20 @@ import animBackRight from '@/components/animBackRight.vue';
 let title = 'Строительство'
 let video = './video/real.mp4'
 
-// let frontColor = 'linear-gradient(to right top, rgba(195, 20, 50, 0.6), rgba(0, 0, 0, .6))'
-// let frontColor = 'linear-gradient(to top right, rgba(9, 132, 227, .7), rgba(0, 0, 0, .3))'
-let frontColor = 'linear-gradient(to top left, rgba(251, 197, 49, .6), rgba(0, 0, 0, .6))'
+// let frontColor = 'linear-gradient(to top left, rgba(251, 197, 49, .6), rgba(0, 0, 0, .6))'
+let frontColor = 'linear-gradient(to top left, rgba(230, 126, 34, .6), rgba(0, 0, 0, .8))'
+// let frontColor = 'linear-gradient(to top left, rgba(155, 89, 182, .3), rgba(0, 0, 0, .8))'
+// let frontColor = 'rgba(0, 0, 0, .7)'
 
 
 
-// let background = 'rgba(0, 0, 0, .6)'
+
+// let background = 'rgba(0, 0, 0, .3)'
 // let background = 'rgba(195, 20, 50, 0.2)'
-let background = 'linear-gradient(to bottom left, rgba(251, 197, 49, .6), rgba(0, 0, 0, .6))'
+// let background = 'linear-gradient(to bottom left, rgba(251, 197, 49, .6), rgba(0, 0, 0, .6))'
+let background = 'linear-gradient(to bottom left, rgba(230, 126, 34, .4), rgba(0, 0, 0, .3))'
+// let background = 'linear-gradient(to bottom left, rgba(155, 89, 182, .6), rgba(0, 0, 0, .3))'
+
 
 
 

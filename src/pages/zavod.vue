@@ -4,15 +4,16 @@ import AnimBackRight from '@/components/animBackRight.vue';
 
 let title = 'Завод ЖБК - 1'
 let pageImg = '/img/zavod.png'
-let video = '/public/video/zavod.mp4'
+let video = './video/zavod.mp4'
 
-// let fronColor = 'linear-gradient(to top right, rgba(9, 132, 227, .7), rgba(0, 0, 0, .6))'
-let fronColor = 'linear-gradient(to top left, rgba(64, 115, 158, .8), rgba(0, 0, 0, .6))'
+let fronColor = 'linear-gradient(to top right, rgba(9, 132, 227, .7), rgba(0, 0, 0, .6))'
+// let fronColor = 'linear-gradient(to top left, rgba(64, 115, 158, .8), rgba(0, 0, 0, .6))'
 // let fronColor = 'linear-gradient(to right top, rgba(194, 54, 22, .8), rgba(0, 0, 0, .6))'
+// let fronColor = 'rgba(0, 0, 0, .5);'
 
 
 
-// let background = 'rgba(0, 0, 0, .6);'
+// let background = 'rgba(0, 0, 0, .5);'
 let background = 'linear-gradient(to bottom left, rgba(64, 115, 158, .8), rgba(0, 0, 0, .2))'
 // let background = 'rgba(34, 107, 156, .4);'
 
@@ -42,7 +43,7 @@ let links = [
 
 <template>
   <section class="main__corp mCorp">
-    <AnimBackRight :title="title"
+    <animBackLeft :title="title"
       :links="links" class="main__back" 
       :img="pageImg" :desc="pageDesc"
       :video="video" :front-color="fronColor"
